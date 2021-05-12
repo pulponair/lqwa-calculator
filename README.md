@@ -1,4 +1,4 @@
-# lqwa-calculator
+# Loaded Quarter Wave Antenna Calculator
 
 ## Project setup
 ```
