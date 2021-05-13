@@ -35,6 +35,7 @@
         </b-card>
         <b-card class="mt-3" header="Computed">
             <pre class="m-0">Wavelength: {{ waveLength }}</pre>
+            <pre class="m-0">1/4 Wavelength: {{ quarterWaveLength }}</pre>
             <pre class="m-0">CoilPropoertion: {{ coilProportion }}</pre>
             <pre class="m-0">coilProportionRelative: {{ coilProportionRelative }}</pre>
             <pre class="m-0">coilOffsetRelative: {{ coilOffsetRelative }}</pre>
