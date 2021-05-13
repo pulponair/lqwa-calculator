@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form @submit="onSubmit">
+        <b-form>
             <b-form-group
                     id="input-group-1"
                     label="Frequency in Mhz:"
