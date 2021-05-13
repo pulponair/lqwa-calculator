@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import InputForm from './components/InputForm.vue'
 
 export default {
