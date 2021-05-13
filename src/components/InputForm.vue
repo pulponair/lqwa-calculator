@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form @submit="onSubmit">
             <b-form-group
                     id="input-group-1"
                     label="Frequency in Mhz:"
@@ -45,8 +45,7 @@
                     frequency: 7,
                     length: 3,
                     distanceOfCoilFromBase: 0,
-                },
-                show: true
+                }
             }
         },
         methods: {
