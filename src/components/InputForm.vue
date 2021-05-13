@@ -9,7 +9,6 @@
                 <b-form-input
                         id="input-1"
                         v-model="form.frequency"
-                        type="email"
                         required
                 ></b-form-input>
             </b-form-group>
