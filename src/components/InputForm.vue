@@ -29,10 +29,18 @@
                 ></b-form-input>
                 </b-form-group>
 
-            <b-button type="submit" variant="primary">Calculate</b-button>
         </b-form>
         <b-card class="mt-3" header="Form Data Result">
             <pre class="m-0">{{ form }}</pre>
+        </b-card>
+        <b-card class="mt-3" header="Computed">
+            <pre class="m-0">Wavelength: {{ waveLength }}</pre>
+            <pre class="m-0">CoilPropoertion: {{ coilProportion }}</pre>
+            <pre class="m-0">coilProportionRelative: {{ coilProportionRelative }}</pre>
+            <pre class="m-0">coilOffsetRelative: {{ coilOffsetRelative }}</pre>
+        </b-card>
+        <b-card class="mt-3" header="Efficeny">
+            <pre class="m-0">{{ efficiency }}</pre>
         </b-card>
     </div>
 </template>
@@ -48,10 +56,28 @@
                 }
             }
         },
-        methods: {
-            onSubmit(event) {
-                event.preventDefault()
-                alert(JSON.stringify(this.form))
+        computed: {
+            waveLength: function () {
+                return 300 / this.form.frequency;
+            },
+            quarterWaveLength: function() {
+                return this.waveLength / 4
+            },
+            coilProportion: function () {
+                return this.quarterWaveLength - this.form.length;
+            },
+            coilProportionRelative: function () {
+                return  this.coilProportion / this.quarterWaveLength;
+            },
+
+            coilOffsetRelative: function() {
+               return this.form.distanceOfCoilFromBase / this.quarterWaveLength;
+            },
+
+
+            efficiency : function() {
+                let offset = Math.PI/2 * this.coilOffsetRelative;
+                return 1 - (Math.sin(Math.PI/2 * this.coilProportionRelative + offset) - Math.sin(offset)) ;
             }
         }
     }
